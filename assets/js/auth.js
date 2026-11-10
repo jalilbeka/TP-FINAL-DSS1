@@ -19,6 +19,46 @@ const auth = (() => {
   function isAdmin() {
     return currentUser?.role === 'admin';
   }
+  /**
+ * Validate registration form data.
+ */
+function validateRegistration(username, password, email, fullname) {
+
+    if (!/^[a-zA-Z0-9_]{3,20}$/.test(username)) {
+        return {
+            valid: false,
+            message: 'Username must be 3-20 characters (letters, numbers, underscore).'
+        };
+    }
+
+    if (password.length < 8) {
+        return {
+            valid: false,
+            message: 'Password must contain at least 8 characters.'
+        };
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+        return {
+            valid: false,
+            message: 'Please enter a valid email address.'
+        };
+    }
+
+    if (fullname.length < 2) {
+        return {
+            valid: false,
+            message: 'Full name must contain at least 2 characters.'
+        };
+    }
+
+    return {
+        valid: true,
+        message: ''
+    };
+}
 
   /**
    * Attempt login via API.
@@ -198,6 +238,18 @@ const auth = (() => {
         window.app.showToast(i18n.t('auth.error_empty'), 'error');
         return;
       }
+
+      const validation = validateRegistration(
+    username,
+    password,
+    email,
+    fullname
+);
+
+if (!validation.valid) {
+    window.app.showToast(validation.message, 'error');
+    return;
+}
 
       const btn = registerForm.querySelector('button[type="submit"]');
       btn.disabled = true;
