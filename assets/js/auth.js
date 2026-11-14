@@ -167,6 +167,28 @@ function validateRegistration(username, password, email, fullname) {
   }
 
   /**
+   * Switch between login and registration tabs.
+   */
+  function switchTab(type) {
+    const loginTab = document.getElementById('auth-tab-login');
+    const registerTab = document.getElementById('auth-tab-register');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+
+    if (type === 'register') {
+      loginTab?.classList.remove('active');
+      registerTab?.classList.add('active');
+      loginForm?.classList.add('hidden');
+      registerForm?.classList.remove('hidden');
+    } else {
+      loginTab?.classList.add('active');
+      registerTab?.classList.remove('active');
+      loginForm?.classList.remove('hidden');
+      registerForm?.classList.add('hidden');
+    }
+  }
+
+  /**
    * Initialize auth UI event listeners.
    */
   function init() {
@@ -176,29 +198,18 @@ function validateRegistration(username, password, email, fullname) {
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
 
-    loginTab?.addEventListener('click', () => {
-      loginTab.classList.add('active');
-      registerTab.classList.remove('active');
-      loginForm.classList.remove('hidden');
-      registerForm.classList.add('hidden');
-    });
-
-    registerTab?.addEventListener('click', () => {
-      registerTab.classList.add('active');
-      loginTab.classList.remove('active');
-      registerForm.classList.remove('hidden');
-      loginForm.classList.add('hidden');
-    });
+    loginTab?.addEventListener('click', () => switchTab('login'));
+    registerTab?.addEventListener('click', () => switchTab('register'));
 
     // Switch links
     document.getElementById('switch-to-register')?.addEventListener('click', (e) => {
       e.preventDefault();
-      registerTab?.click();
+      switchTab('register');
     });
 
     document.getElementById('switch-to-login')?.addEventListener('click', (e) => {
       e.preventDefault();
-      loginTab?.click();
+      switchTab('login');
     });
 
     // Login form submission
@@ -262,7 +273,7 @@ if (!validation.valid) {
 
       if (result.success) {
         window.app.showToast(result.message, 'success');
-        loginTab?.click();
+        switchTab('login');
         if (document.getElementById('login-username')) {
           document.getElementById('login-username').value = username;
         }

@@ -408,6 +408,31 @@ textarea:focus-visible {
   transform: scaleX(1);
 }
 
+/* ----- Auth Screen Tabs ----- */
+.auth-tab {
+  flex: 1;
+  padding-bottom: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.auth-tab:hover {
+  color: var(--text-primary);
+}
+
+.auth-tab.active {
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom-color: var(--accent-primary);
+}
+
 /* ----- Loading Spinner ----- */
 .spinner {
   display: inline-block;

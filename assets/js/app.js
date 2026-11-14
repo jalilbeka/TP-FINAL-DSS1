@@ -165,6 +165,13 @@ const app = (() => {
     if (btnEn) btnEn.classList.toggle('font-bold', lang === 'en');
     if (btnFr) btnFr.classList.toggle('text-[var(--accent-primary)]', lang === 'fr');
     if (btnFr) btnFr.classList.toggle('font-bold', lang === 'fr');
+
+    const authBtnEn = document.getElementById('auth-lang-en');
+    const authBtnFr = document.getElementById('auth-lang-fr');
+    if (authBtnEn) authBtnEn.classList.toggle('text-[var(--accent-primary)]', lang === 'en');
+    if (authBtnEn) authBtnEn.classList.toggle('font-bold', lang === 'en');
+    if (authBtnFr) authBtnFr.classList.toggle('text-[var(--accent-primary)]', lang === 'fr');
+    if (authBtnFr) authBtnFr.classList.toggle('font-bold', lang === 'fr');
   }
 
   /* ----------------------------------------------------------
@@ -1489,6 +1496,14 @@ const app = (() => {
       i18n.setLanguage('fr');
       updateLangButtons();
       renderActiveTab();
+    });
+    document.getElementById('auth-lang-en')?.addEventListener('click', () => {
+      i18n.setLanguage('en');
+      updateLangButtons();
+    });
+    document.getElementById('auth-lang-fr')?.addEventListener('click', () => {
+      i18n.setLanguage('fr');
+      updateLangButtons();
     });
 
     // Check session

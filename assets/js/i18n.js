@@ -5,8 +5,10 @@
 const translations = {
   en: {
     /* Auth */
-    'auth.title': 'DSS University',
-    'auth.subtitle': 'Decision Support System',
+    'auth.badge': 'University 8 Mai 1945 Guelma · Computer Science Dept',
+    'auth.title': 'Specialization Decision Support System',
+    'auth.subtitle': 'Multi-Criteria Academic Orientation & Specialization Selection powered by the Weighted Sum Model (WSM)',
+    'auth.footer_note': 'Weighted Sum Model (WSM) · Academic Year 2025/2026',
     'auth.login': 'Login',
     'auth.register': 'Register',
     'auth.username': 'Username',
@@ -156,8 +158,10 @@ const translations = {
 
   fr: {
     /* Auth */
-    'auth.title': 'DSS Université',
-    'auth.subtitle': "Système d'Aide à la Décision",
+    'auth.badge': 'Université 8 Mai 1945 Guelma · Dépt. Informatique',
+    'auth.title': "Système d'Aide à la Décision d'Orientation",
+    'auth.subtitle': "Système d'orientation académique multicritère basé sur le modèle de somme pondérée (WSM) pour évaluer et classer les spécialités universitaires",
+    'auth.footer_note': 'Modèle de Somme Pondérée (WSM) · Année Académique 2025/2026',
     'auth.login': 'Connexion',
     'auth.register': "S'inscrire",
     'auth.username': "Nom d'utilisateur",

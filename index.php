@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Decision Support System for University Specialization Selection - University of Guelma - ISIL 3rd Year">
-  <title>DSS University — Specialization Selection</title>
+  <meta name="description" content="Multi-Criteria Decision Support System for University Specialization Selection - University 8 Mai 1945 Guelma">
+  <title>Specialization Decision Support System — Univ. Guelma</title>
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,14 +69,14 @@
             <path d="M6 12v5c3 3 9 3 12 0v-5"/>
           </svg>
         </div>
-        <div class="text-xs uppercase tracking-widest text-[var(--accent-primary)] font-semibold mb-1">
-          University of Guelma · Computer Science Dept
+        <div class="text-xs uppercase tracking-widest text-[var(--accent-primary)] font-semibold mb-1" data-i18n="auth.badge">
+          University 8 Mai 1945 Guelma · Computer Science Dept
         </div>
         <h1 class="text-3xl font-bold tracking-tight text-[var(--text-primary)]" data-i18n="auth.title">
-          DSS University
+          Specialization Decision Support System
         </h1>
-        <p class="text-sm text-[var(--text-secondary)] mt-1.5" data-i18n="auth.subtitle">
-          Decision Support System for Specialization Selection
+        <p class="text-sm text-[var(--text-secondary)] mt-2 leading-relaxed" data-i18n="auth.subtitle">
+          Multi-Criteria Academic Orientation & Specialization Selection powered by the Weighted Sum Model (WSM)
         </p>
       </div>
 
@@ -84,10 +84,10 @@
       <div class="bg-[var(--bg-secondary)] border border-[var(--border-default)] rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur-sm">
         <!-- Auth Tabs (Login / Register) -->
         <div class="flex border-b border-[var(--border-default)] mb-6">
-          <button id="auth-tab-login" type="button" class="flex-1 pb-3 text-sm font-semibold text-[var(--text-primary)] border-b-2 border-[var(--accent-primary)] transition-all">
+          <button id="auth-tab-login" type="button" class="auth-tab active">
             <span data-i18n="auth.login">Login</span>
           </button>
-          <button id="auth-tab-register" type="button" class="flex-1 pb-3 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-b-2 border-transparent transition-all">
+          <button id="auth-tab-register" type="button" class="auth-tab">
             <span data-i18n="auth.register">Register</span>
           </button>
         </div>
@@ -104,7 +104,7 @@
               </span>
               <input type="text" id="login-username" required autocomplete="username"
                 class="w-full pl-10 pr-3.5 py-2.5 bg-[var(--bg-input)] border border-[var(--border-default)] rounded-lg text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--accent-primary)] focus:ring-1 focus:ring-[var(--accent-primary)] focus:outline-none transition-colors"
-                placeholder="admin or student">
+                placeholder="Enter username">
             </div>
           </div>
 
@@ -125,21 +125,6 @@
           <button type="submit" class="w-full mt-2 py-2.5 px-4 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white font-medium rounded-lg text-sm shadow-md hover:shadow-lg shadow-[var(--accent-primary)]/20 transition-all flex items-center justify-center gap-2">
             <span data-i18n="auth.login_btn">Sign In</span>
           </button>
-
-          <!-- Demo Quick-Fill Buttons -->
-          <div class="pt-3 border-t border-[var(--border-default)] text-center">
-            <span class="text-xs text-[var(--text-muted)] block mb-2 font-mono">Quick Demo Sign-in:</span>
-            <div class="flex items-center justify-center gap-2">
-              <button type="button" onclick="document.getElementById('login-username').value='admin';document.getElementById('login-password').value='admin123';"
-                class="text-xs px-2.5 py-1 rounded bg-[var(--bg-tertiary)] hover:bg-[var(--border-default)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono transition-colors">
-                Admin (admin / admin123)
-              </button>
-              <button type="button" onclick="document.getElementById('login-username').value='student';document.getElementById('login-password').value='student123';"
-                class="text-xs px-2.5 py-1 rounded bg-[var(--bg-tertiary)] hover:bg-[var(--border-default)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono transition-colors">
-                Student (student / student123)
-              </button>
-            </div>
-          </div>
 
           <p class="text-center text-xs text-[var(--text-secondary)] mt-4">
             <span data-i18n="auth.no_account">Don't have an account?</span>
@@ -196,14 +181,14 @@
         </form>
       </div>
 
-      <!-- Language & Theme Bar on Auth Screen -->
+      <!-- Language & Project Information Bar on Auth Screen -->
       <div class="flex items-center justify-between text-xs text-[var(--text-muted)] mt-6 px-2">
-        <div class="flex items-center gap-2">
-          <button id="auth-lang-en" onclick="i18n.setLanguage('en');location.reload();" class="hover:text-[var(--text-primary)] font-medium">EN</button>
-          <span>·</span>
-          <button id="auth-lang-fr" onclick="i18n.setLanguage('fr');location.reload();" class="hover:text-[var(--text-primary)] font-medium">FR</button>
+        <div class="flex items-center bg-[var(--bg-secondary)] border border-[var(--border-default)] rounded-lg p-0.5 text-xs font-mono">
+          <button id="auth-lang-en" type="button" class="px-2 py-0.5 rounded transition-colors text-[var(--text-secondary)] hover:text-[var(--text-primary)]">EN</button>
+          <span class="text-[var(--border-default)]">|</span>
+          <button id="auth-lang-fr" type="button" class="px-2 py-0.5 rounded transition-colors text-[var(--text-secondary)] hover:text-[var(--text-primary)]">FR</button>
         </div>
-        <span>Final Practical Project (3rd Year ISIL)</span>
+        <span data-i18n="auth.footer_note">Weighted Sum Model (WSM) · Academic Year 2025/2026</span>
       </div>
     </div>
   </div>
