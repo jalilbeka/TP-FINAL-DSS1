@@ -1,0 +1,7 @@
+# Protect environment files, Git metadata, and internal PHP directories from direct HTTP access
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>
+
+RedirectMatch 403 ^/(.*/)?\.git(/.*)?$
+RedirectMatch 403 ^/(.*/)?(includes|config|database)(/.*)?$

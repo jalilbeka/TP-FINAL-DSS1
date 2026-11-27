@@ -328,6 +328,79 @@
   <!-- Modal Overlay Container -->
   <div id="modal-overlay" class="modal-overlay"></div>
 
+  <!-- AI Support Chatbot Widget -->
+  <div id="chatbot-widget" class="chatbot-widget no-print">
+    <!-- Chat Window -->
+    <section id="chatbot-window" class="chatbot-window" role="dialog" aria-label="DSS AI Assistant" aria-hidden="true">
+      <header class="chatbot-header">
+        <div class="chatbot-header__info">
+          <div class="chatbot-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 8V4H8"/>
+              <rect width="16" height="12" x="4" y="8" rx="2"/>
+              <path d="M2 14h2"/>
+              <path d="M20 14h2"/>
+              <path d="M15 13v2"/>
+              <path d="M9 13v2"/>
+            </svg>
+          </div>
+          <div class="chatbot-header__titles">
+            <h2 class="chatbot-header__title" data-i18n="chatbot.title">DSS Assistant</h2>
+            <p class="chatbot-header__subtitle" data-i18n="chatbot.subtitle">Orientation &amp; Navigation Help</p>
+          </div>
+        </div>
+        <div class="chatbot-header__actions">
+          <button id="chatbot-clear" type="button" class="chatbot-icon-btn" data-i18n-title="chatbot.clear" title="Clear chat" aria-label="Clear chat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+          </button>
+          <button id="chatbot-close" type="button" class="chatbot-icon-btn" data-i18n-title="chatbot.close" title="Close" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div id="chatbot-messages" class="chatbot-messages" aria-live="polite"></div>
+
+      <form id="chatbot-form" class="chatbot-input-bar" novalidate>
+        <div class="chatbot-input-wrap">
+          <textarea
+            id="chatbot-input"
+            class="chatbot-input"
+            rows="1"
+            maxlength="1000"
+            data-i18n-placeholder="chatbot.placeholder"
+            placeholder="Ask about specializations, WSM, or navigation..."
+            aria-label="Chat message"
+          ></textarea>
+          <span id="chatbot-char-count" class="chatbot-char-count hidden">0/1000</span>
+        </div>
+        <button id="chatbot-send" type="submit" class="chatbot-send-btn" data-i18n-title="chatbot.send" title="Send message" aria-label="Send message" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </form>
+    </section>
+
+    <!-- Floating Chat Toggle Button -->
+    <button id="chatbot-toggle" type="button" class="chatbot-toggle" aria-expanded="false" aria-controls="chatbot-window" data-i18n-title="chatbot.toggle_open" title="Open AI assistant" aria-label="Open AI assistant">
+      <svg class="chatbot-toggle__icon chatbot-toggle__icon--chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <svg class="chatbot-toggle__icon chatbot-toggle__icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
   <!-- Toast Notification Container -->
   <div id="toast-container" class="toast-container"></div>
 
@@ -337,5 +410,6 @@
   <script src="assets/js/charts.js"></script>
   <script src="assets/js/auth.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/chatbot.js"></script>
 </body>
 </html>

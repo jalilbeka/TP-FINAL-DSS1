@@ -154,6 +154,23 @@ const translations = {
     'common.back': 'Back',
     'common.next': 'Next',
     'common.required': 'Required',
+
+    /* Chatbot */
+    'chatbot.title': 'DSS Assistant',
+    'chatbot.subtitle': 'Orientation & Navigation Help',
+    'chatbot.toggle_open': 'Open AI assistant',
+    'chatbot.toggle_close': 'Close AI assistant',
+    'chatbot.clear': 'Clear chat',
+    'chatbot.close': 'Close',
+    'chatbot.placeholder': 'Ask about specializations, WSM, or navigation...',
+    'chatbot.send': 'Send message',
+    'chatbot.welcome': "Hi! I'm the DSS University assistant. Ask me how to navigate the site, understand the Weighted Sum Model (WSM), or compare the specializations (P1–P4).",
+    'chatbot.error_empty': 'Please type a message first.',
+    'chatbot.error_length': 'Message cannot exceed 1000 characters.',
+    'chatbot.error_cooldown': 'Please wait a moment before sending another message.',
+    'chatbot.error_rate_limit': 'Too many requests right now. Please wait a moment and try again.',
+    'chatbot.error_network': 'Unable to reach the assistant right now. Please try again.',
+    'chatbot.typing': 'Thinking...',
   },
 
   fr: {
@@ -307,6 +324,23 @@ const translations = {
     'common.back': 'Retour',
     'common.next': 'Suivant',
     'common.required': 'Obligatoire',
+
+    /* Chatbot */
+    'chatbot.title': 'Assistant DSS',
+    'chatbot.subtitle': "Aide à l'orientation & navigation",
+    'chatbot.toggle_open': "Ouvrir l'assistant IA",
+    'chatbot.toggle_close': "Fermer l'assistant IA",
+    'chatbot.clear': 'Effacer la discussion',
+    'chatbot.close': 'Fermer',
+    'chatbot.placeholder': 'Posez une question sur les spécialités, WSM ou le site...',
+    'chatbot.send': 'Envoyer',
+    'chatbot.welcome': "Bonjour ! Je suis l'assistant DSS Université. Demandez-moi comment naviguer sur le site, comprendre le modèle WSM ou comparer les spécialisations (P1–P4).",
+    'chatbot.error_empty': 'Veuillez écrire un message.',
+    'chatbot.error_length': 'Le message ne peut pas dépasser 1000 caractères.',
+    'chatbot.error_cooldown': "Veuillez patienter un instant avant d'envoyer un autre message.",
+    'chatbot.error_rate_limit': 'Trop de requêtes en ce moment. Veuillez patienter un instant et réessayer.',
+    'chatbot.error_network': "Impossible de joindre l'assistant pour le moment. Veuillez réessayer.",
+    'chatbot.typing': 'Réflexion...',
   },
 };
 
@@ -362,6 +396,10 @@ function applyTranslations() {
   document.querySelectorAll('[data-i18n-title]').forEach((el) => {
     el.title = t(el.getAttribute('data-i18n-title'));
   });
+
+  if (window.chatbot && typeof window.chatbot.refreshLanguage === 'function') {
+    window.chatbot.refreshLanguage();
+  }
 }
 
 // Make available globally
